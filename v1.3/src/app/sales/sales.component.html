@@ -27,8 +27,9 @@
     <input type="text" name="brand" placeholder="Brand" [(ngModel)]="brand"><br>
     <input type="number" name="price" placeholder="Price in KSH" [(ngModel)]="price"><br> -->
     <button class="btn btn-success" (click)="addSaleItem()">Add new sale </button>
+    <button class="btn btn-danger" (click)="clearSalesList()">Clear List</button>
   </form>
-  <button class="btn btn-danger" (click)="clearSalesList()">Clear List</button>
+  <!-- <button class="btn btn-danger" (click)="clearSalesList()">Clear List</button> -->
 
   <div class="column">
     <ol class="list-group list-group-numbered">

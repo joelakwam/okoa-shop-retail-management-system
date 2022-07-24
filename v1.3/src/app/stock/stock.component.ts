@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Guid } from 'guid-typescript';
+import { Item } from 'src/models/item.model';
 
 @Component({
   selector: 'app-stock',
@@ -9,19 +11,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class StockComponent implements OnInit {
 
-  
   stock: any[] = []
-  itemName: String = '';
-  brand: String = ''
+
+  itemName: string = '';
+  brand: string = ''
   quantity: number = 0
   price: number = 0
 
-  addItem(){ 
-    const item = new Item();
-    item['itemName'] = this.itemName
-    item['quantity'] = this.quantity
-    item['brand'] = this.brand
-    item['price'] = this.price
+  addNewItem(){ 
+    const item = new Item(Guid.create(), this.itemName, this.brand, this.price, this.quantity);
 
     this.stock.push(item)
 
@@ -46,10 +44,3 @@ export class StockComponent implements OnInit {
   }
 }
 
-class Item {
-  itemName: String = '';
-  quantity: number = 0;
-  brand: String = ''
-  price: number = 0;
-  totalStockPrice: number = this.quantity * this.price;
-}

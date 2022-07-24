@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Guid } from 'guid-typescript';
+import { Item } from 'src/models/item.model';
 
 @Component({
   selector: 'app-sales',
@@ -10,19 +12,14 @@ import { Component, OnInit } from '@angular/core';
 export class SalesComponent implements OnInit {
 
   sales: any[] = []
-  itemName: String = '';
+
+  itemName: string = '';
   quantity: number = 0
-  brand: String = ''
+  brand: string = ''
   price: number = 0
 
   addSaleItem(){ 
-    const item = new SaleItem();
-
-    item['id'] = this.sales.length
-    item['itemName'] = this.itemName
-    item['quantity'] = this.quantity
-    item['brand'] = this.brand
-    item['price'] = this.price
+    const item = new Item(Guid.create(), this.itemName, this.brand, this.price, this.quantity);
 
     this.sales.push(item)
 
@@ -46,10 +43,3 @@ export class SalesComponent implements OnInit {
   }
 }
 
-class SaleItem {
-  id: any = 0
-  itemName: String = '';
-  quantity: number = 0;
-  brand: String = ''
-  price: number = 0;
-}

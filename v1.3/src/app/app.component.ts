@@ -9,7 +9,9 @@ import { Guid } from "guid-typescript";
 })
 export class AppComponent {
 
-  title = 'Okoa Shop Retail Management System';
+  sales: any[] = []
+  inventory: any[] = []
+
   items: any[] = [
     new Item(Guid.create(), 'Toothpaste', 'Colgate', 50, 78),
     new Item(Guid.create(), 'Toothpaste', 'Close Up', 50, 70),
