@@ -1,0 +1,25 @@
+<h3>Inventory</h3>
+
+<form action="">
+  <input type="text" name="item" placeholder="Item name" [(ngModel)]="itemName" required>
+  <input type="number" name="quantity" placeholder="Quantity" [(ngModel)]="quantity" required>
+  <input type="text" name="brand" placeholder="Brand" [(ngModel)]="brand" required>
+  <input type="number" name="price" placeholder="Price in KSH" [(ngModel)]="price" required>
+  <button class="btn btn-success" (click)="addItem()">Add New Item </button>
+</form>
+<button class="btn btn-danger" (click)="clearStockList()">Clear List</button>
+
+
+
+<div class="column">
+  <!-- <p *ngFor="let item of stock">{{ item }}</p> -->
+  <ol class="list-group list-group-numbered"> 
+      <li *ngFor="let item of stock; let id = index" class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">{{ item.itemName }} - {{ item.brand }}| Ksh. {{ item.price }}</div>
+            Stock: {{ item.quantity }} | Total stock in Ksh. {{ item.quantity * item.price }}
+          </div>
+          <button (click)="onDeleteStockItem(id)" class="badge bg-danger rounded-pill"><span class="material-symbols-outlined">delete</span></button>
+      </li>
+  </ol>
+</div>
