@@ -1,46 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { Guid } from 'guid-typescript';
-import { Item } from 'src/models/item.model';
+import { Component, OnInit } from "@angular/core";
+import { Guid } from "guid-typescript";
+import { Item } from "src/models/item.model";
 
 @Component({
-  selector: 'app-stock',
-  templateUrl: './stock.component.html',
-  styleUrls: ['./stock.component.scss']
+  selector: "app-stock",
+  templateUrl: "./stock.component.html",
+  styleUrls: ["./stock.component.scss"],
 })
-
-
 export class StockComponent implements OnInit {
+  inventory: Item[] = [];
 
-  stock: any[] = []
+  itemName: string = "";
+  brand: string = "";
+  quantity: number = 0;
+  price: number = 0;
 
-  itemName: string = '';
-  brand: string = ''
-  quantity: number = 0
-  price: number = 0
+  addNewItem() {
+    const item = new Item(
+      Guid.create(),
+      this.itemName,
+      this.brand,
+      this.price,
+      this.quantity
+    );
 
-  addNewItem(){ 
-    const item = new Item(Guid.create(), this.itemName, this.brand, this.price, this.quantity);
+    this.inventory.push(item);
 
-    this.stock.push(item)
-
-    this.itemName = ''
-    this.quantity = 0
-    this.brand = ''
-    this.price = 0
+    this.itemName = "";
+    this.quantity = 0;
+    this.brand = "";
+    this.price = 0;
   }
-
 
   clearStockList() {
-    this.stock = []
+    this.inventory = [];
   }
 
-  onDeleteStockItem(id: any){
-    this.stock.splice(id, 1)
+  onDeleteStockItem(id: any) {
+    this.inventory.splice(id, 1);
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
-

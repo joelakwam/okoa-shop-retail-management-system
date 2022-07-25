@@ -11,6 +11,7 @@ import { FormsModule  } from '@angular/forms';
 import { ReportComponent } from './report/report.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

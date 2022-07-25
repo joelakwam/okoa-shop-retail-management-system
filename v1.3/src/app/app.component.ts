@@ -9,17 +9,19 @@ import { Guid } from "guid-typescript";
 })
 export class AppComponent {
 
-  sales: any[] = []
+  sales: Item[] = []
   inventory: any[] = []
 
-  items: any[] = [
-    new Item(Guid.create(), 'Toothpaste', 'Colgate', 50, 78),
-    new Item(Guid.create(), 'Toothpaste', 'Close Up', 50, 70),
-    new Item(Guid.create(), 'Cooking Oil', 'Elianto', 100, 48),  
-    new Item(Guid.create(), 'Cooking Oil', 'Top Fry', 120, 88)
-  ]
+  
 
-  onDeleteSaleItem(i: any){
-    this.items.splice(i, 1)
-  }
+  // items: any[] = [
+  //   new Item(Guid.create(), 'Toothpaste', 'Colgate', 50, 78),
+  //   new Item(Guid.create(), 'Toothpaste', 'Close Up', 50, 70),
+  //   new Item(Guid.create(), 'Cooking Oil', 'Elianto', 100, 48),  
+  //   new Item(Guid.create(), 'Cooking Oil', 'Top Fry', 120, 88)
+  // ]
+
+  // onDeleteSaleItem(i: any){
+  //   this.items.splice(i, 1)
+  // }
 }
